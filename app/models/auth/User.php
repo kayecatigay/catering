@@ -19,6 +19,7 @@ class User extends Model {
 		$this->deletedatabase($edituserid["id"]);
 		$this->savedatabase($edituserid);
 	}
+
 	public function checkuser($check){
 		$this->call->database(); 
 		$readuser=$this->db->table('customer')->where('emailadd',$check["user"])->get();
