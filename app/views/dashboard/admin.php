@@ -141,19 +141,26 @@
                             <th>Name</th>
                             <th>email</th>
                             <th>address</th>
-                            <th>contact num</th>
+                            <th>contact number</th>
                             <th>date</th>
                             <th>theme details</th>
                         </tr>
-                        <tr>
-                            <td>..</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                        </tr>
                         
+                        <?php
+                         foreach ($cdata as $customer):
+                            if($customer["name"]!="")
+                            {
+                                echo "<tr>"
+                                    ."<td>" . $customer["name"] ."</td>"
+                                    ."<td>" . $customer["email"] ."</td>"
+                                    ."<td>" . $customer["address"] ."</td>"
+                                    ."<td>" . $customer["contactnum"] ."</td>"
+                                    ."<td>" . $customer["Date"] ."</td>"
+                                    ."<td>" . $customer["themedetails"] ."</td>"
+                                ."</tr>";
+                            }
+                        endforeach
+                        ?>
                     </table>
                 </div> 
             </div>
@@ -179,7 +186,7 @@
 
         <script>
         var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                var yValues = [<?php echo $jan;?>,<?php echo $feb;?>,<?php echo $mar;?>,<?php echo $apr;?>,<?php echo $may;?>,<?php echo $jun;?>,<?php echo $jul;?>,<?php echo $aug;?>,<?php echo $sep;?>,<?php echo $oct;?>,<?php echo $nov;?>,<?php echo $dec;?>];
+        var yValues = [<?= $gdata["jan"];?>,<?= $gdata["feb"];?>,<?= $gdata["mar"];?>,<?= $gdata["apr"];?>,<?= $gdata["may"];?>,<?= $gdata["jun"];?>,<?= $gdata["jul"];?>,<?= $gdata["aug"];?>,<?= $gdata["sep"];?>,<?= $gdata["oct"];?>,<?= $gdata["nov"];?>,<?= $gdata["dec"];?>];
         var barColors = ["red", "green","blue","orange","brown","red", "green","blue","orange","brown","red", "green"];
 
         new Chart("myChart", {

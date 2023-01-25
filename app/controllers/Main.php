@@ -80,9 +80,11 @@ class Main extends Controller {
 
                 $datares = $this->Reservation->showAllReserve();
 
-                // var_dump($datares);
-                // $alldata=array($gdata,$datares);
-                $this->call->view('dashboard/admin',$gdata,$datares);
+
+                $alldata=array('gdata'=>$gdata,'cdata'=>$datares);
+                // var_dump($alldata["cdata"][0]["name"]);
+
+                $this->call->view('dashboard/admin',$alldata);
         }
         else 
         {
