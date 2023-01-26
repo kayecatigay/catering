@@ -16,7 +16,8 @@ class Main extends Controller {
     public function register() {
         $this->call->view('auth/register');
     
-    }
+    } 
+    
 
     public function saveuserdata()
     {
@@ -130,5 +131,28 @@ class Main extends Controller {
             echo"Available";
         }
     }
-   
+    
+    public function deletereservation()
+    {
+        $name= $_POST["name"];
+        $this->call->model('auth/Reservation');
+        $data['cdata'] = $this->Reservation->deletefromdatabase($name);
+        echo"Reservation deleted successfully!";
+        echo"<a href='http://localhost/CReservation/app/views/dashboard/admin'><button>Back</button></a>";
+    }
+
+    public function editform()
+    {
+        $this->call->view('auth/editform',"");
+    }
+
+    public function editreservation()
+    {
+        $reserve=array("name"=>$_POST["name"], "email"=>$_POST["emailadd"], "address"=>$_POST["add"],
+        "contactnum"=>$_POST["contact"], "Date"=>$_POST["date"], "themedetails"=>$_POST["theme"]);
+        $this->call->model('auth/Reservation');
+        $data['cdata'] = $this->Reservation->editfromdatabase($reserve);
+        echo"Reservation edited successfully!";
+        echo"<a href='http://localhost/CReservation/Main/dashboard'><button>Back</button></a>";
+    }
 }

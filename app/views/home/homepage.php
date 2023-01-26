@@ -713,7 +713,7 @@
 
                     <div class="form-outline mb-4">
                         <input type="date" id="date" name="date" class="form-control" /> 
-                        <label class="form-label" for="form2Example2">Date and Time </label> &nbsp; 
+                        <label class="form-label" for="form2Example2">Date</label> &nbsp; 
                         <a class="btn btn-info" onclick ="showHint(document.getElementById('date').value)">Check Availability</a>
                         <span id="txtHint"></span>
                     </div>

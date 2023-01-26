@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="<?php echo BASE_URL. PUBLIC_DIR?>/src/elegant_font/style.css"> 
     <link rel="stylesheet" href="<?php echo BASE_URL. PUBLIC_DIR?>/src/css/style.css"> 
     <link rel="stylesheet" href="<?php echo BASE_URL. PUBLIC_DIR?>/src/css/table.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL. PUBLIC_DIR?>/src/css/admintable.css">
 
     <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
@@ -136,14 +137,15 @@
             <div>  
                 <h2>Reservation List</h2>
 
-                    <table>
+                    <table style="">
                         <tr>
                             <th>Name</th>
-                            <th>email</th>
-                            <th>address</th>
-                            <th>contact number</th>
-                            <th>date</th>
-                            <th>theme details</th>
+                            <th>Email Address</th>
+                            <th>Address</th>
+                            <th>contact Number</th>
+                            <th>Date</th>
+                            <th>Theme Details</th>
+                            <th>Action</th>
                         </tr>
                         
                         <?php
@@ -157,6 +159,21 @@
                                     ."<td>" . $customer["contactnum"] ."</td>"
                                     ."<td>" . $customer["Date"] ."</td>"
                                     ."<td>" . $customer["themedetails"] ."</td>"
+                                    ."<td>" 
+                                    ."<form style action='editform' method='post'>
+                                        <input type = 'hidden' value= '" . $customer["name"] ."' name='name'><br>
+                                        <input type = 'hidden' value= '" . $customer["email"] ."' name='emailadd'><br>
+                                        <input type = 'hidden' value= '" . $customer["address"] ."' name='add'><br>
+                                        <input type = 'hidden' value= '" . $customer["contactnum"] ."' name='contact'><br>
+                                        <input type = 'hidden' value= '" . $customer["Date"] ."' name='date'><br>
+                                        <input type = 'hidden' value= '" . $customer["themedetails"] ."' name='theme'><br>
+                                        <input type='submit'  value='Edit'name='edit'>
+                                    </form>
+                                        <form action= 'deletereservation' method='post'>
+                                            <input type = 'hidden' value= '" . $customer["name"] ."' name='name'><br>
+                                            <input type = 'submit'  value= 'Delete' name='delete'>
+                                        </form> ".
+                                    "</td>"
                                 ."</tr>";
                             }
                         endforeach

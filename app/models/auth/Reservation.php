@@ -10,14 +10,14 @@ class Reservation extends Model {
 		$this->call->database(); 
 		return $this->db->table('reserve')->insert($reservedata);
 	}
-	public function deletetodatabase($userid){
+	public function deletefromdatabase($deletereserve){
 		$this->call->database(); 
-		$this->db->table('reserve')->where('id',$userid);
+		$this->db->table('reserve')->where('name',$deletereserve);
 		$this->db->delete('reserve');
 	}
-	public function editdatabase($edituserid){
-		$this->deletedatabase($edituserid["id"]);
-		$this->savedatabase($edituserid);
+	public function editfromdatabase($editreservation){
+		$this->deletefromdatabase($editreservation["name"]);
+		$this->savetodatabase($editreservation);
 	}
 	public function checkdateandtime($check){
 		$this->call->database(); 
