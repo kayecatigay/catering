@@ -41,57 +41,61 @@ class Main extends Controller {
         $this->call->model('auth/User');
         $data = $this->User->checkuser($user);
         if ($data){
-
-                $this->call->model('auth/Reservation');
-                $datadate = $this->Reservation->getdatedata(1);
-                $gdata["jan"]=intval($datadate);
-
-                $datadate = $this->Reservation->getdatedata(2);
-                $gdata["feb"]=intval($datadate);
-
-                $datadate = $this->Reservation->getdatedata(3);
-                $gdata["mar"]=intval($datadate);
-
-                $datadate = $this->Reservation->getdatedata(4);
-                $gdata["apr"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(5);
-                $gdata["may"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(6);
-                $gdata["jun"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(7);
-                $gdata["jul"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(8);
-                $gdata["aug"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(9);
-                $gdata["sep"]=intval($datadate);
-                
-                $datadate = $this->Reservation->getdatedata(10);
-                $gdata["oct"]=intval($datadate);
-
-                $datadate = $this->Reservation->getdatedata(11);
-                $gdata["nov"]=intval($datadate);
-
-                $datadate = $this->Reservation->getdatedata(12);
-                $gdata["dec"]=intval($datadate);
-
-                $datares = $this->Reservation->showAllReserve();
-
-
-                $alldata=array('gdata'=>$gdata,'cdata'=>$datares);
-                // var_dump($alldata["cdata"][0]["name"]);
-
-                $this->call->view('dashboard/admin',$alldata);
+            $this->call->helper('url');
+            redirect('http://localhost/CReservation/Main/dashboard');
         }
         else 
         {
             echo "Your username and password does not exist!
             <a href='http://localhost/CReservation/Main/register'><button>Register</button></a>";
         }
+    }
+    public function dashboard()
+    {
+        $this->call->model('auth/Reservation');
+        $datadate = $this->Reservation->getdatedata(1);
+        $gdata["jan"]=intval($datadate);
+
+        $datadate = $this->Reservation->getdatedata(2);
+        $gdata["feb"]=intval($datadate);
+
+        $datadate = $this->Reservation->getdatedata(3);
+        $gdata["mar"]=intval($datadate);
+
+        $datadate = $this->Reservation->getdatedata(4);
+        $gdata["apr"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(5);
+        $gdata["may"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(6);
+        $gdata["jun"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(7);
+        $gdata["jul"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(8);
+        $gdata["aug"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(9);
+        $gdata["sep"]=intval($datadate);
+        
+        $datadate = $this->Reservation->getdatedata(10);
+        $gdata["oct"]=intval($datadate);
+
+        $datadate = $this->Reservation->getdatedata(11);
+        $gdata["nov"]=intval($datadate);
+
+        $datadate = $this->Reservation->getdatedata(12);
+        $gdata["dec"]=intval($datadate);
+
+        $datares = $this->Reservation->showAllReserve();
+
+
+        $alldata=array('gdata'=>$gdata,'cdata'=>$datares);
+        // var_dump($alldata["cdata"][0]["name"]);
+
+        $this->call->view('dashboard/admin',$alldata);
     }
 
     public function savereservation()
@@ -134,11 +138,11 @@ class Main extends Controller {
     
     public function deletereservation()
     {
-        $name= $_POST["name"];
+        $id=intval($_POST["id"]);
         $this->call->model('auth/Reservation');
-        $data['cdata'] = $this->Reservation->deletefromdatabase($name);
+        $this->Reservation->deletefromdatabase($id);
         echo"Reservation deleted successfully!";
-        echo"<a href='http://localhost/CReservation/app/views/dashboard/admin'><button>Back</button></a>";
+        echo"<a href='http://localhost/CReservation/Main/dashboard'><button>Back</button></a>";
     }
 
     public function editform()
@@ -148,7 +152,7 @@ class Main extends Controller {
 
     public function editreservation()
     {
-        $reserve=array("name"=>$_POST["name"], "email"=>$_POST["emailadd"], "address"=>$_POST["add"],
+        $reserve=array("id"=>$_POST["id"],"name"=>$_POST["name"], "email"=>$_POST["emailadd"], "address"=>$_POST["add"],
         "contactnum"=>$_POST["contact"], "Date"=>$_POST["date"], "themedetails"=>$_POST["theme"]);
         $this->call->model('auth/Reservation');
         $data['cdata'] = $this->Reservation->editfromdatabase($reserve);

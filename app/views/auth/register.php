@@ -8,6 +8,18 @@
             <br>
             <form action="http://localhost/CReservation/Main/saveuserdata"  method="POST">
 
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <input type="email" id="emailadd" name="emailadd" class="form-control" placeholder="user@company.com" required />
+                <label class="form-label" for="form2Example1">Email address <span class="text-danger">*</span></label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="pass" name="pass" class="form-control" required />
+                <label class="form-label" for="form2Example2">Password <span class="text-danger">*</span></label>
+            </div>            
+
             <div class="form-outline mb-4">
                 <input type="text" id="fname" name="fname" class="form-control" />
                 <label class="form-label" for="form2Example1">First name</label>
@@ -16,12 +28,6 @@
             <div class="form-outline mb-4">
                 <input type="text" id="lname" name="lname" class="form-control" />
                 <label class="form-label" for="form2Example1">Last name</label>
-            </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <input type="password" id="pass" name="pass" class="form-control"/>
-                <label class="form-label" for="form2Example2">Password</label>
             </div>
 
             <div class="form-outline mb-4">
@@ -34,32 +40,17 @@
                 <label class="form-label" for="form2Example2">Contact Number</label>
             </div>
             
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <input type="email" id="emailadd" name="emailadd" class="form-control" />
-                <label class="form-label" for="form2Example1">Email address</label>
-            </div>
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-                <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                
-                
-
-                <!-- <div class="col"> -->
-                <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
-                </div>
-            </div>
-
-            <!-- Submit button -->
             
-
+             <!-- Register buttons -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block mb-4 center">Register</button>
+            </div>
             <!-- Register buttons -->
             <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-block mb-4 center">Sign in</button>
+                <p>Already a member? <a href="http://localhost/CReservation/Main/login">Sign in</a></p>
                 
             </div>
+
             </form>
 
         </div>

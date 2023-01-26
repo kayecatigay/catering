@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php       
-   
+
         $name = $_POST["name"];
         $emailadd = $_POST["emailadd"];
         $add = $_POST["add"];
@@ -18,7 +18,7 @@
         $theme = $_POST["theme"];
         echo "<br><br>
         <form action='editreservation' method='post' align='center'><br>
-
+            <input type = 'hidden' value='".$_POST["id"] ."' name='id'>
             <b>&nbsp;&nbsp;Name: </b><input type = 'text' value='".$name."' name='name'>
             <b>&nbsp;&nbsp;Email Address: </b><input type = 'text' value='".$emailadd."' name='emailadd'>
             <b>&nbsp;&nbsp;Address: </b><input type = 'text' value='".$add."' name='add'>

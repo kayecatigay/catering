@@ -160,20 +160,21 @@
                                     ."<td>" . $customer["Date"] ."</td>"
                                     ."<td>" . $customer["themedetails"] ."</td>"
                                     ."<td>" 
-                                    ."<form style action='editform' method='post'>
-                                        <input type = 'hidden' value= '" . $customer["name"] ."' name='name'><br>
-                                        <input type = 'hidden' value= '" . $customer["email"] ."' name='emailadd'><br>
-                                        <input type = 'hidden' value= '" . $customer["address"] ."' name='add'><br>
-                                        <input type = 'hidden' value= '" . $customer["contactnum"] ."' name='contact'><br>
-                                        <input type = 'hidden' value= '" . $customer["Date"] ."' name='date'><br>
-                                        <input type = 'hidden' value= '" . $customer["themedetails"] ."' name='theme'><br>
-                                        <input type='submit'  value='Edit'name='edit'>
-                                    </form>
-                                        <form action= 'deletereservation' method='post'>
-                                            <input type = 'hidden' value= '" . $customer["name"] ."' name='name'><br>
-                                            <input type = 'submit'  value= 'Delete' name='delete'>
-                                        </form> ".
-                                    "</td>"
+                                            ."<form style action='editform' method='post'>
+                                                <input type = 'hidden' value= '" . $customer["id"] ."' name='id'>
+                                                <input type = 'hidden' value= '" . $customer["name"] ."' name='name'>
+                                                <input type = 'hidden' value= '" . $customer["email"] ."' name='emailadd'>
+                                                <input type = 'hidden' value= '" . $customer["address"] ."' name='add'>
+                                                <input type = 'hidden' value= '" . $customer["contactnum"] ."' name='contact'>
+                                                <input type = 'hidden' value= '" . $customer["Date"] ."' name='date'>
+                                                <input type = 'hidden' value= '" . $customer["themedetails"] ."' name='theme'>
+                                                <input type='submit'  value='Edit'name='edit'>
+                                            </form>
+                                            <form action= 'deletereservation' method='post'>
+                                                <input type = 'hidden' value= '" . $customer["id"] ."' name='id'>
+                                                <input type='submit' value='delete' name='delete' >
+                                            </form> "
+                                    ."</td>"
                                 ."</tr>";
                             }
                         endforeach

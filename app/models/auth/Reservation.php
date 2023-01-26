@@ -12,7 +12,7 @@ class Reservation extends Model {
 	}
 	public function deletefromdatabase($deletereserve){
 		$this->call->database(); 
-		$this->db->table('reserve')->where('name',$deletereserve);
+		$this->db->table('reserve')->where('id',$deletereserve);
 		$this->db->delete('reserve');
 	}
 	// public function editfromdatabase($editreservation){
@@ -28,8 +28,17 @@ class Reservation extends Model {
 	// 	$this->db->table('reserve')->where('name',$_POST["name"])->update($data);
 	// }
 	public function editfromdatabase($editreservation){
-		$this->deletefromdatabase($editreservation["name"]);
-		$this->savetodatabase($editreservation);
+		$data = [
+			'name' => $editreservation["name"],
+			'email' => $editreservation["email"],
+			'address' => $editreservation["address"],
+			'contactnum' => $editreservation["contactnum"],
+			'Date' => $editreservation["Date"],
+			'themedetails' => $editreservation["themedetails"],
+		];
+		// var_dump($editreservation["id"]);
+		$this->call->database();
+		$this->db->table('reserve')->where('id',intval($editreservation["id"]))->update($data);
 	}
 	public function checkdateandtime($check){
 		$this->call->database(); 
