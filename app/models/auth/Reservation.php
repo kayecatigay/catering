@@ -15,6 +15,18 @@ class Reservation extends Model {
 		$this->db->table('reserve')->where('name',$deletereserve);
 		$this->db->delete('reserve');
 	}
+	// public function editfromdatabase($editreservation){
+	// 	$data = [
+	// 		'name' => $_POST["name"],
+	// 		'email' => $_POST["emailadd"],
+	// 		'address' => $_POST["add"],
+	// 		'contactnum' => $_POST["contact"],
+	// 		'Date' => $_POST["date"],
+	// 		'themedetails' => $_POST["theme"],
+	// 	];
+	// 	$this->call->database();
+	// 	$this->db->table('reserve')->where('name',$_POST["name"])->update($data);
+	// }
 	public function editfromdatabase($editreservation){
 		$this->deletefromdatabase($editreservation["name"]);
 		$this->savetodatabase($editreservation);

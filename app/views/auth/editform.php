@@ -23,7 +23,7 @@
             <b>&nbsp;&nbsp;Email Address: </b><input type = 'text' value='".$emailadd."' name='emailadd'>
             <b>&nbsp;&nbsp;Address: </b><input type = 'text' value='".$add."' name='add'>
             <b>&nbsp;&nbsp;Contact: </b><input type = 'text' value='".$contact."' name='contact'>
-            <b>&nbsp;&nbsp;Date: </b><input type = 'text' value='".$date."' name='date'>
+            <b>&nbsp;&nbsp;Date: </b><input type = 'date' value='".$date."' name='date'><br>
             <b>&nbsp;&nbsp;Theme Details: </b><input type = 'text' value='".$theme."' name='theme'>
             <input type= 'submit'>
 
